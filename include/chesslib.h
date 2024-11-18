@@ -28,5 +28,6 @@ void init_board(int[8][8], char*);
 void display_board(int[8][8]);
 char get_char_rep(int);
 int get_binary_rep(char);
+void move_piece(int[8][8], int[2], int[2]);
 
 #endif

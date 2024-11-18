@@ -40,6 +40,11 @@ void init_board(int board[8][8], char* fen_str) {
     }
 }
 
+void move_piece(int board[8][8], int to_move[2], int moved_to[2]) {
+    board[moved_to[0]][moved_to[1]] = board[to_move[0]][to_move[1]];
+    board[to_move[0]][to_move[1]] = NOP;
+}
+
 char get_char_rep(int binary_rep) {
     char char_rep;
     switch (binary_rep) {
