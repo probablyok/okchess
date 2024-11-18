@@ -1,12 +1,15 @@
 #include "chesslib.h"
 
 void display_board(int board[8][8]) {
+    printf("   a b c d e f g h\n");
     for (int rank = 0; rank <= 7; rank++) {
+        printf("%d ", 8 - rank);
         for (int file = 0; file <= 7; file++) {
             printf("|%c", get_char_rep(board[rank][file]));
         }
-        printf("|\n");
+        printf("| %d\n", 8 - rank);
     }
+    printf("   a b c d e f g h\n");
 }
 
 void init_board(int board[8][8], char* fen_str) {
