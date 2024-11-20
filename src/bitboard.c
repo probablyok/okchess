@@ -1,6 +1,33 @@
 #include <stdio.h>
 #include "bitboard.h"
 
+Bitboard occupied_spaces(ChessBoard* board) {
+    // Return union of all bitboards for each piece.
+    return (
+        board->wp | board->wn | board->wb | board->wr |
+        board->wk | board->wq | board->bp | board->bn |
+        board->bb | board->br | board->bk | board->bq
+    );
+}
+
+Bitboard unoccupied_spaces(ChessBoard* board) {
+    Bitboard occupied = occupied_spaces(board);
+    return ~occupied;
+}
+
+void display_bitboard(Bitboard* bitboard) {
+    printf("   a b c d e f g h\n");
+    for (int rank = 7; rank >= 0; rank--) {
+        printf("%d ", rank+1);
+        for (int file = 0; file < 8; file++) {
+            int square = rank * 8 + file;
+            (IS_BIT_SET(*bitboard, square)) ? printf("|1") : printf("|0");
+        }
+        printf("| %d\n", rank+1);
+    }
+    printf("   a b c d e f g h\n");
+}
+
 void display_board(ChessBoard* board) {
     printf("   a b c d e f g h\n");
     for (int rank = 7; rank >= 0; rank--) {

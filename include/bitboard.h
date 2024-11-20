@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 #define IS_BIT_SET(bitboard, square) ((bitboard) & (1ULL << (square)))
+
 #define START_FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
 
 // 64-bit word representing positions for piece type on board.
@@ -47,5 +48,9 @@ void init_board(ChessBoard*, char*);
 void clear_board(ChessBoard*);
 void set_square(ChessBoard*, enum PieceType piece, int, int);
 void display_board(ChessBoard*);
+void display_bitboard(Bitboard*);
+Bitboard occupied_spaces(ChessBoard*);
+Bitboard unoccupied_spaces(ChessBoard*);
+
 
 #endif
