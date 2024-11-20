@@ -49,7 +49,7 @@ Bitboard bp_can_push(ChessBoard* board, Bitboard* empty) {
 }
 
 // The position of each black pawn that is able to double push.
-Bitboard wp_can_dbl_push(ChessBoard* board, Bitboard* empty) {
+Bitboard bp_can_dbl_push(ChessBoard* board, Bitboard* empty) {
     Bitboard empty_in_rank5_and_6 = ((*empty & RANK5) << 8) & *empty;
     return (wp_can_push(board, &empty_in_rank5_and_6));
 }
