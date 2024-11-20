@@ -25,7 +25,7 @@ void display_bitboard(Bitboard* bitboard) {
         }
         printf("| %d\n", rank+1);
     }
-    printf("   a b c d e f g h\n");
+    printf("   a b c d e f g h\n\n");
 }
 
 void display_board(ChessBoard* board) {
@@ -51,7 +51,7 @@ void display_board(ChessBoard* board) {
         }
         printf("| %d\n", rank+1);
     }
-    printf("   a b c d e f g h\n");
+    printf("   a b c d e f g h\n\n");
 }
 
 void clear_board(ChessBoard* board) {
