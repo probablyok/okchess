@@ -17,7 +17,7 @@ Bitboard unoccupied_spaces(ChessBoard* board) {
 
 void display_bitboard(Bitboard* bitboard) {
     printf("   a b c d e f g h\n");
-    for (int rank = 7; rank >= 0; rank--) {
+    for (int rank = 0; rank < 8; rank++) {
         printf("%d ", rank+1);
         for (int file = 0; file < 8; file++) {
             int square = rank * 8 + file;
@@ -30,7 +30,7 @@ void display_bitboard(Bitboard* bitboard) {
 
 void display_board(ChessBoard* board) {
     printf("   a b c d e f g h\n");
-    for (int rank = 7; rank >= 0; rank--) {
+    for (int rank = 0; rank < 8; rank++) {
         printf("%d ", rank+1);
         for (int file = 0; file < 8; file++) {
             int square = rank * 8 + file;
