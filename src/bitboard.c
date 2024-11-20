@@ -17,10 +17,10 @@ Bitboard unoccupied_spaces(ChessBoard* board) {
 
 void display_bitboard(Bitboard* bitboard) {
     printf("   a b c d e f g h\n");
-    for (int rank = 0; rank < 8; rank++) {
+    for (int rank = 7; rank >= 0; rank--) {
         printf("%d ", rank+1);
         for (int file = 0; file < 8; file++) {
-            int square = rank * 8 + file;
+            int square = (7 - rank) * 8 + file;
             (IS_BIT_SET(*bitboard, square)) ? printf("|1") : printf("|0");
         }
         printf("| %d\n", rank+1);
@@ -30,10 +30,10 @@ void display_bitboard(Bitboard* bitboard) {
 
 void display_board(ChessBoard* board) {
     printf("   a b c d e f g h\n");
-    for (int rank = 0; rank < 8; rank++) {
+    for (int rank = 7; rank >= 0; rank--) {
         printf("%d ", rank+1);
         for (int file = 0; file < 8; file++) {
-            int square = rank * 8 + file;
+            int square = (7 - rank) * 8 + file;
 
             if      IS_BIT_SET(board->wp, square) printf("|P");
             else if IS_BIT_SET(board->wn, square) printf("|N");
