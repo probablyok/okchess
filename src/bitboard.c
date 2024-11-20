@@ -20,7 +20,7 @@ void display_bitboard(Bitboard* bitboard) {
     for (int rank = 7; rank >= 0; rank--) {
         printf("%d ", rank+1);
         for (int file = 0; file < 8; file++) {
-            int square = (7 - rank) * 8 + file;
+            int square = rank * 8 + file;
             (IS_BIT_SET(*bitboard, square)) ? printf("|1") : printf("|0");
         }
         printf("| %d\n", rank+1);
@@ -33,7 +33,7 @@ void display_board(ChessBoard* board) {
     for (int rank = 7; rank >= 0; rank--) {
         printf("%d ", rank+1);
         for (int file = 0; file < 8; file++) {
-            int square = (7 - rank) * 8 + file;
+            int square = rank * 8 + file;
 
             if      IS_BIT_SET(board->wp, square) printf("|P");
             else if IS_BIT_SET(board->wn, square) printf("|N");
@@ -95,13 +95,13 @@ void init_board(ChessBoard* board, char *fen_str) {
     clear_board(board);
 
     int cur_file = 0;
-    int cur_rank = 0;
+    int cur_rank = 7;
 
     for (int str_index = 0; fen_str[str_index] != '\0'; str_index++) {
         // Move up file
         if (fen_str[str_index] == '/') {
             cur_file = 0;
-            cur_rank++;
+            cur_rank--;
             continue;
         }
 
