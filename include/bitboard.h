@@ -7,6 +7,15 @@
 
 #define START_FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
 
+#define RANK1 0x00000000000000FF
+#define RANK2 0x000000000000FF00
+#define RANK3 0x0000000000FF0000
+#define RANK4 0x00000000FF000000
+#define RANK5 0x000000FF00000000
+#define RANK6 0x0000FF0000000000
+#define RANK7 0x00FF000000000000
+#define RANK8 0xFF00000000000000
+
 // 64-bit word representing positions for piece type on board.
 // Bit 0 represents A1, bit 7 represents h1, up until bit 63 is h8.
 typedef uint64_t Bitboard;
@@ -49,8 +58,8 @@ void clear_board(ChessBoard*);
 void set_square(ChessBoard*, enum PieceType piece, int, int);
 void display_board(ChessBoard*);
 void display_bitboard(Bitboard*);
+
 Bitboard occupied_spaces(ChessBoard*);
 Bitboard unoccupied_spaces(ChessBoard*);
-
 
 #endif
