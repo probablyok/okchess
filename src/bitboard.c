@@ -15,6 +15,20 @@ Bitboard unoccupied_spaces(ChessBoard* board) {
     return ~occupied;
 }
 
+Bitboard b_pieces(ChessBoard* board) {
+    return (
+        board->bp | board->bn | board->bb |
+        board->br | board->bk | board->bq
+    );
+}
+
+Bitboard w_pieces(ChessBoard* board) {
+    return (
+        board->wp | board->wn | board->wb |
+        board->wr | board->wk | board->wq
+    );
+}
+
 void display_bitboard(Bitboard* bitboard) {
     printf("   a b c d e f g h\n");
     for (int rank = 7; rank >= 0; rank--) {

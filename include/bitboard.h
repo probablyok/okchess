@@ -16,6 +16,15 @@
 #define RANK7 0x00FF000000000000
 #define RANK8 0xFF00000000000000
 
+#define FILEA 0x0101010101010101
+#define FILEB 0x0202020202020202
+#define FILEC 0x0404040404040404
+#define FILED 0x0808080808080808
+#define FILEE 0x1010101010101010
+#define FILEF 0x2020202020202020
+#define FILEG 0x4040404040404040
+#define FILEH 0x8080808080808080
+
 // 64-bit word representing positions for piece type on board.
 // Bit 0 represents A1, bit 7 represents h1, up until bit 63 is h8.
 typedef uint64_t Bitboard;
@@ -61,5 +70,8 @@ void display_bitboard(Bitboard*);
 
 Bitboard occupied_spaces(ChessBoard*);
 Bitboard unoccupied_spaces(ChessBoard*);
+
+Bitboard b_pieces(ChessBoard*);
+Bitboard w_pieces(ChessBoard*);
 
 #endif
